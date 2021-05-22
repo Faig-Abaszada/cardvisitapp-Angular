@@ -1,9 +1,12 @@
-import { Injectable } from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CardService {
 
-  constructor() { }
+  constructor(
+    @Inject('apiUrl') private apiUrl: string, //apiURL: string !service
+                                             // icinde apiurl-i cagiracagimiz deyisken adidir!
+  ) { }
 }
