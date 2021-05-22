@@ -16,4 +16,8 @@ export class CardsComponent implements OnInit {
     this.cardService.getCards();
   }
 
+  addCardModal(): void {
+
+  }
+
 }
