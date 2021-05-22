@@ -1,1 +1,5 @@
-<app-card-item></app-card-item>
+<div class="row">
+  <div class="col-3" *ngFor="let card of cardService.cards">
+    <app-card-item [card]="card"></app-card-item>
+  </div>
+</div>
