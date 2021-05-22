@@ -20,7 +20,12 @@ import { HeaderComponent } from './components/header/header.component';
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'apiUrl',
+      useValue: 'https://demo.limantech.com/cards/public/api'
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
