@@ -5,6 +5,7 @@ import { CardsRoutingModule } from './cards-routing.module';
 import { CardsComponent } from './cards.component';
 import { CardItemComponent } from './card-item/card-item.component';
 import { CardModalComponent } from './card-modal/card-modal.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { CardModalComponent } from './card-modal/card-modal.component';
   ],
   imports: [
     CommonModule,
-    CardsRoutingModule
+    CardsRoutingModule,
+    MatDialogModule
   ]
 })
 export class CardsModule { }
