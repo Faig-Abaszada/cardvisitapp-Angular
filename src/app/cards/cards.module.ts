@@ -6,6 +6,7 @@ import { CardsComponent } from './cards.component';
 import { CardItemComponent } from './card-item/card-item.component';
 import { CardModalComponent } from './card-modal/card-modal.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -17,7 +18,9 @@ import {MatDialogModule} from '@angular/material/dialog';
   imports: [
     CommonModule,
     CardsRoutingModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class CardsModule { }

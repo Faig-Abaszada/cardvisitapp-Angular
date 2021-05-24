@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-card-modal',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardModalComponent implements OnInit {
 
-  constructor() { }
+  cardForm!: FormGroup;
+
+  constructor(
+    private fb: FormBuilder,
+  ) { }
 
   ngOnInit(): void {
+    this.cardForm = this.fb.group({
+      name: ['', Validators.maxLength(50)],
+      title: ['', [Validators.required, Validators.maxLength(255)]],
+      phone: ['', [Validators.required, Validators.maxLength(20)]],
+      email: ['', [Validators.email, Validators.maxLength(50)]],
+      address: ['', Validators.maxLength(255)]
+    });
   }
 
 }
