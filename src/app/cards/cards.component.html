@@ -1,5 +1,5 @@
 <div class="row">
-  <button type="button" class="btn btn-dark m-3" (click)="addCardModal()">yeni card elave et</button>
+  <button type="button" class="btn btn-dark m-3" (click)="openAddCardModal()">yeni card elave et</button>
   <div class="col-3" *ngFor="let card of cardService.cards">
     <app-card-item [card]="card"></app-card-item>
   </div>
