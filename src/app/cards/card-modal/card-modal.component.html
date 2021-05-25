@@ -1,29 +1,35 @@
 
-  <form>
+  <form [formGroup]="cardForm">
     <div class="mb-1">
       <label class="form-label">Title</label>
-      <input  class="form-control" >
+      <input class="form-control is-invalid" formControlName="title"
+
+      >
     </div>
     <div class="mb-1">
       <label class="form-label">Name</label>
-      <input  class="form-control" >
+      <input  class="form-control" formControlName="name">
     </div>
     <div class="mb-1">
       <label class="form-label">Email address</label>
-      <input  class="form-control" >
+      <input  class="form-control" formControlName="email">
     </div>
     <div class="mb-1">
       <label class="form-label">Phone</label>
-      <input  class="form-control" >
+      <input  class="form-control" formControlName="phone">
     </div>
     <div class="mb-1">
       <label class="form-label">Address</label>
-      <input  class="form-control" >
+      <input  class="form-control" formControlName="address"
+              [ngClass]="{'is-invalid': ((cardForm.get('address').touched ||
+             cardForm.get('address').dirty) &&
+             cardForm.get('address').errors)}"
+      >
     </div>
 
     <div class="btns d-flex justify-content-between mt-3">
       <button type="submit" class="btn btn-dark">sil</button>
       <button type="submit" class="btn btn-dark">yenile</button>
-      <button type="submit" class="btn btn-dark">elave et!</button>
+      <button type="submit" class="btn btn-dark" click>elave et!</button>
     </div>
   </form>

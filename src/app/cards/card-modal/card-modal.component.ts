@@ -17,7 +17,7 @@ export class CardModalComponent implements OnInit {
   ngOnInit(): void {
     this.cardForm = this.fb.group({
       name: ['', Validators.maxLength(50)],
-      title: ['', [Validators.required, Validators.maxLength(255)]],
+      title: ['', Validators.required,],
       phone: ['', [Validators.required, Validators.maxLength(20)]],
       email: ['', [Validators.email, Validators.maxLength(50)]],
       address: ['', Validators.maxLength(255)]

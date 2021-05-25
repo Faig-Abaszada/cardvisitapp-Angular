@@ -7,6 +7,7 @@ import { CardItemComponent } from './card-item/card-item.component';
 import { CardModalComponent } from './card-modal/card-modal.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {BrowserModule} from "@angular/platform-browser";
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     CardsRoutingModule,
     MatDialogModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    // BrowserModule
   ]
 })
 export class CardsModule { }
