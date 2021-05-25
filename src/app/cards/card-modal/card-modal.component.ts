@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CardService} from "../../services/card.service";
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-card-modal',
@@ -13,7 +14,8 @@ export class CardModalComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private cardService: CardService
+    private cardService: CardService,
+    private dialogRef: MatDialogRef<CardModalComponent>
   ) { }
 
   ngOnInit(): void {
@@ -30,8 +32,11 @@ export class CardModalComponent implements OnInit {
     // console.log(this.cardForm.value)
     this.cardService.addCard(this.cardForm.value)
       .subscribe((res: any) => {
-        console.log(res)
+        this.dialogRef.close();
+
       })
   }
+//  card add success oldugu zaman this.dialogRef ile close deyib komponenti baglayiriq.
+//  dialogRef neyi baglayavgini constructor icindeki referansdan bilir.
 
 }
