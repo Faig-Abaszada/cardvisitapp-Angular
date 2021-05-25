@@ -34,7 +34,7 @@ export class CardModalComponent implements OnInit {
     // console.log(this.cardForm.value)
     this.cardService.addCard(this.cardForm.value)
       .subscribe((res: any) => {
-        this.dialogRef.close();
+        this.dialogRef.close(true);
         this.snackBar.open(res || 'Card Visitiniz elave edildi', '');
 
       })
