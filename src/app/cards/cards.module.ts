@@ -8,6 +8,7 @@ import { CardModalComponent } from './card-modal/card-modal.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserModule} from "@angular/platform-browser";
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {BrowserModule} from "@angular/platform-browser";
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
-    // BrowserModule
+    // BrowserModule,
+    MatSnackBarModule
   ]
 })
 export class CardsModule { }
