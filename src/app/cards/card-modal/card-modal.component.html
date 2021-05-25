@@ -2,9 +2,7 @@
   <form [formGroup]="cardForm">
     <div class="mb-1">
       <label class="form-label">Title</label>
-      <input class="form-control is-invalid" formControlName="title"
-
-      >
+      <input class="form-control" formControlName="title">
     </div>
     <div class="mb-1">
       <label class="form-label">Name</label>
@@ -21,15 +19,13 @@
     <div class="mb-1">
       <label class="form-label">Address</label>
       <input  class="form-control" formControlName="address"
-              [ngClass]="{'is-invalid': ((cardForm.get('address').touched ||
-             cardForm.get('address').dirty) &&
-             cardForm.get('address').errors)}"
       >
+
     </div>
 
     <div class="btns d-flex justify-content-between mt-3">
       <button type="submit" class="btn btn-dark">sil</button>
       <button type="submit" class="btn btn-dark">yenile</button>
-      <button type="submit" class="btn btn-dark" click>elave et!</button>
+      <button type="submit" class="btn btn-dark" (click)="addCardMethod()" >elave et!</button>
     </div>
   </form>

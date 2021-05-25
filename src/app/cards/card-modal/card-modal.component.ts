@@ -24,4 +24,8 @@ export class CardModalComponent implements OnInit {
     });
   }
 
+  addCardMethod(): void {
+    console.log(this.cardForm.value)
+  }
+
 }
