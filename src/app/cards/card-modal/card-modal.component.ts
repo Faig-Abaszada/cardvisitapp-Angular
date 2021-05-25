@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {CardService} from "../../services/card.service";
 
 @Component({
   selector: 'app-card-modal',
@@ -12,6 +13,7 @@ export class CardModalComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private cardService: CardService
   ) { }
 
   ngOnInit(): void {
@@ -25,7 +27,11 @@ export class CardModalComponent implements OnInit {
   }
 
   addCardMethod(): void {
-    console.log(this.cardForm.value)
+    // console.log(this.cardForm.value)
+    this.cardService.addCard(this.cardForm.value)
+      .subscribe((res: any) => {
+        console.log(res)
+      })
   }
 
 }

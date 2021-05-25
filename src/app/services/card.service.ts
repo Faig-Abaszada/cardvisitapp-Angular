@@ -22,4 +22,8 @@ export class CardService {
       });
   }
 
+  addCard(card: Card) {
+    return this.http.post(this.apiUrl + '/cards', card)
+  }
+
 }
