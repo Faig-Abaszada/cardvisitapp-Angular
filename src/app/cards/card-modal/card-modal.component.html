@@ -1,5 +1,6 @@
 
   <form [formGroup]="cardForm">
+    <h2 class="title">{{data ? 'Cardvisit Update' : 'New Card Visit'}}</h2>
     <div class="mb-1">
       <label class="form-label">Title</label>
       <input class="form-control" formControlName="title">
@@ -25,7 +26,6 @@
 
     <div class="btns d-flex justify-content-between mt-3">
       <button type="submit" class="btn btn-dark">sil</button>
-      <button type="submit" class="btn btn-dark">yenile</button>
-      <button type="submit" class="btn btn-dark" (click)="addCardMethod()" >elave et!</button>
+      <button type="submit" class="btn btn-dark" (click)="data ? null : addCardMethod()" >{{data ? 'Update' : 'Add'}}</button>
     </div>
   </form>
