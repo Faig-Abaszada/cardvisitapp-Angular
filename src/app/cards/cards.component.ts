@@ -19,12 +19,11 @@ export class CardsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.addCardModal();
+    this.cardService.getCards();
   }
 
-  addCardModal(): void {
+  openAddCardModal(): void {
     const dialog = this.dialog.open(CardModalComponent)
-
     dialog.afterClosed().subscribe(res => {
       if(res) {
         this.cardService.getCards();
