@@ -38,20 +38,14 @@ export class CardModalComponent implements OnInit {
     this.showSpinner = true;
     this.cardService.addCard(this.cardForm.value)
       .subscribe((res: any) => {
-        this.cardService.getCards();
-        this.showSpinner = false;
-        this.dialogRef.close();
-        this.snackBar.open(res || 'Card Visitiniz elave edildi', '');
+        this.getSuccess(res || 'Card Visitiniz Yenilendi');
       })
   }
   updateCard(): void {
     this.showSpinner = true;
     this.cardService.updateCard(this.cardForm.value, this.data.id)
       .subscribe((res: any) => {
-        this.cardService.getCards();
-        this.showSpinner = false;
-        this.dialogRef.close();
-        this.snackBar.open(res || 'Card Visitiniz Yenilendi', '');
+        this.getSuccess(res || 'Card Visitiniz Yenilendi');
       });
   }
   cancelCard(): void {
@@ -61,11 +55,15 @@ export class CardModalComponent implements OnInit {
     this.showSpinner = true;
     this.cardService.deleteCard(this.data.id)
       .subscribe((res: any) => {
-        this.cardService.getCards();
-        this.showSpinner = false;
-        this.dialogRef.close();
-        this.snackBar.open(res || 'Card Visitiniz Silindi', '');
+        this.getSuccess(res || 'Card Visitiniz Silindi');
       });
+  }
+
+  getSuccess(message: string): void {
+    this.cardService.getCards();
+    this.showSpinner = false;
+    this.dialogRef.close();
+    this.snackBar.open(message, '', {duration: 4000});
   }
 //  card add success oldugu zaman this.dialogRef ile close deyib komponenti baglayiriq.
 //  dialogRef neyi baglayavgini constructor icindeki referansdan bilir.
