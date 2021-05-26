@@ -13,6 +13,7 @@ import {Card} from "../../models/card";
 export class CardModalComponent implements OnInit {
 
   cardForm!: FormGroup;
+  showSpinner: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -34,17 +35,21 @@ export class CardModalComponent implements OnInit {
 
   addCardMethod(): void {
     // console.log(this.cardForm.value)
+    this.showSpinner = true;
     this.cardService.addCard(this.cardForm.value)
       .subscribe((res: any) => {
         this.cardService.getCards();
+        this.showSpinner = false;
         this.dialogRef.close();
         this.snackBar.open(res || 'Card Visitiniz elave edildi', '');
       })
   }
   updateCard(): void {
+    this.showSpinner = true;
     this.cardService.updateCard(this.cardForm.value, this.data.id)
       .subscribe((res: any) => {
         this.cardService.getCards();
+        this.showSpinner = false;
         this.dialogRef.close();
         this.snackBar.open(res || 'Card Visitiniz Yenilendi', '');
       });
@@ -53,9 +58,11 @@ export class CardModalComponent implements OnInit {
     this.dialogRef.close();
   }
   deleteCard(): void {
+    this.showSpinner = true;
     this.cardService.deleteCard(this.data.id)
       .subscribe((res: any) => {
         this.cardService.getCards();
+        this.showSpinner = false;
         this.dialogRef.close();
         this.snackBar.open(res || 'Card Visitiniz Silindi', '');
       });

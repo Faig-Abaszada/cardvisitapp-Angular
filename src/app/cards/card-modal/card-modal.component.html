@@ -1,5 +1,6 @@
 
   <form [formGroup]="cardForm">
+    <mat-progress-bar *ngIf="showSpinner" class="mb-3" mode="query"></mat-progress-bar>
     <h2 class="title">{{data ? 'Cardvisit Update' : 'New Card Visit'}}</h2>
     <div class="mb-1">
       <label class="form-label">Title</label>
