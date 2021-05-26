@@ -9,13 +9,15 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserModule} from "@angular/platform-browser";
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { CardSearchComponent } from './card-search/card-search.component';
 
 
 @NgModule({
   declarations: [
     CardsComponent,
     CardItemComponent,
-    CardModalComponent
+    CardModalComponent,
+    CardSearchComponent
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,5 @@
 <div class="row">
+  <app-card-search></app-card-search>
   <button type="button" class="btn btn-dark m-3" (click)="openAddCardModal()">yeni card elave et</button>
 
   <div class="col-12" *ngIf="!cardService.cards">
@@ -8,7 +9,7 @@
     <h1>Card Visitler hele yaratmamisiniz PLS <a class="link-primary" (click)="openAddCardModal()">Card Elave Edin!</a></h1>
   </div>
 
-  <div class="col-3" *ngFor="let card of cardService.cards">
+  <div class="col-3" *ngFor="let card of cardService.filteredCards">
     <app-card-item [card]="card"></app-card-item>
   </div>
 </div>
