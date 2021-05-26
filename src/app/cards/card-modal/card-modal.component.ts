@@ -4,6 +4,7 @@ import {CardService} from "../../services/card.service";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Card} from "../../models/card";
+import {SnackbarService} from "../../services/snackbar.service";
 
 @Component({
   selector: 'app-card-modal',
@@ -20,6 +21,7 @@ export class CardModalComponent implements OnInit {
     private cardService: CardService,
     private dialogRef: MatDialogRef<CardModalComponent>,
     private snackBar: MatSnackBar,
+    private snackbarService: SnackbarService,
     @Inject(MAT_DIALOG_DATA) public data: Card
   ) { }
 
@@ -69,10 +71,10 @@ export class CardModalComponent implements OnInit {
     this.cardService.getCards();
     this.showSpinner = false;
     this.dialogRef.close();
-    this.snackBar.open(message, '', {duration: 4000});
+    this.snackbarService.createSnackBar(message);
   }
   getError(message: string): void {
-    this.snackBar.open(message, '', {duration: 4000});
+    this.snackbarService.createSnackBar(message);
     this.showSpinner = false;
   }
 //  card add success oldugu zaman this.dialogRef ile close deyib komponenti baglayiriq.
