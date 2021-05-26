@@ -40,7 +40,13 @@ export class CardModalComponent implements OnInit {
         this.snackBar.open(res || 'Card Visitiniz elave edildi', '');
       })
   }
-
+  updateCard(): void {
+    this.cardService.updateCard(this.cardForm.value, this.data.id)
+      .subscribe((res: any) => {
+        this.dialogRef.close(true);
+        this.snackBar.open(res || 'Card Visitiniz Yenilendi', '');
+      });
+  }
 //  card add success oldugu zaman this.dialogRef ile close deyib komponenti baglayiriq.
 //  dialogRef neyi baglayavgini constructor icindeki referansdan bilir.
 //  snackBar - success oldugu zaman ekranda alert kimi msg yazsin
