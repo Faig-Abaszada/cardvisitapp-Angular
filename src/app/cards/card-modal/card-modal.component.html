@@ -25,8 +25,8 @@
     </div>
 
     <div class="btns d-flex justify-content-between mt-3">
-      <button type="submit" class="btn btn-dark">sil</button>
-      <button type="submit" class="btn btn-dark" (click)="cancelCard()">Cancel</button>
+      <button type="submit" class="btn btn-warning" *ngIf="data" (click)="deleteCard()">sil</button>
+      <button type="submit" class="btn btn-warning" (click)="cancelCard()">Cancel</button>
       <button type="submit" class="btn btn-dark" (click)="data ? updateCard() : addCardMethod()" >{{data ? 'Update' : 'Add'}}</button>
     </div>
   </form>

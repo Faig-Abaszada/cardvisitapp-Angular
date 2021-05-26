@@ -52,6 +52,14 @@ export class CardModalComponent implements OnInit {
   cancelCard(): void {
     this.dialogRef.close();
   }
+  deleteCard(): void {
+    this.cardService.deleteCard(this.data.id)
+      .subscribe((res: any) => {
+        this.cardService.getCards();
+        this.dialogRef.close();
+        this.snackBar.open(res || 'Card Visitiniz Silindi', '');
+      });
+  }
 //  card add success oldugu zaman this.dialogRef ile close deyib komponenti baglayiriq.
 //  dialogRef neyi baglayavgini constructor icindeki referansdan bilir.
 //  snackBar - success oldugu zaman ekranda alert kimi msg yazsin
