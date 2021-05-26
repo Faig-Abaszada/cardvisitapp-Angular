@@ -71,10 +71,10 @@ export class CardModalComponent implements OnInit {
     this.cardService.getCards();
     this.showSpinner = false;
     this.dialogRef.close();
-    this.snackbarService.createSnackBar(message);
+    this.snackbarService.createSnackBar('success',message);
   }
   getError(message: string): void {
-    this.snackbarService.createSnackBar(message);
+    this.snackbarService.createSnackBar('error',message);
     this.showSpinner = false;
   }
 //  card add success oldugu zaman this.dialogRef ile close deyib komponenti baglayiriq.
