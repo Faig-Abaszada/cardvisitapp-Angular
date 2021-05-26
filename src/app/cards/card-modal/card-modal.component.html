@@ -3,7 +3,7 @@
     <h2 class="title">{{data ? 'Cardvisit Update' : 'New Card Visit'}}</h2>
     <div class="mb-1">
       <label class="form-label">Title</label>
-      <input class="form-control" formControlName="title">
+      <input class="form-control" [ngClass]="{'is-invalid': cardForm.controls.title.invalid && (cardForm.controls.title.dirty || cardForm.touched)}" formControlName="title">
     </div>
     <div class="mb-1">
       <label class="form-label">Name</label>
