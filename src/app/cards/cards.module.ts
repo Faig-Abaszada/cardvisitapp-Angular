@@ -8,7 +8,6 @@ import { CardModalComponent } from './card-modal/card-modal.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserModule} from "@angular/platform-browser";
-import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
@@ -25,7 +24,6 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     FormsModule,
     ReactiveFormsModule,
     // BrowserModule,
-    MatSnackBarModule,
     MatProgressBarModule
   ]
 })
