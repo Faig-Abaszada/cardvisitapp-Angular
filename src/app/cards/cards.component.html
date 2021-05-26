@@ -4,7 +4,7 @@
   <div class="col-12" *ngIf="!cardService.cards">
     <h1>Card Visitler yuklenir PLS gozleyin!</h1>
   </div>
-  <div class="col-12" *ngIf="cardService.cards.length === 0">
+  <div class="col-12" *ngIf="cardService.cards?.length === 0">
     <h1>Card Visitler hele yaratmamisiniz PLS <a class="link-primary" (click)="openAddCardModal()">Card Elave Edin!</a></h1>
   </div>
 
