@@ -5,7 +5,13 @@
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">{{ card.phone }}</li>
-    <li class="list-group-item">{{ card.email }}</li>
-    <li class="list-group-item">{{ card.address }}</li>
+    <li class="list-group-item">
+      {{ card.email }}
+      <small class="text-warning" *ngIf="!card.email">E-mail adresi girilmemişdir.</small>
+    </li>
+    <li class="list-group-item">
+      {{ card.address }}
+      <small class="text-warning" *ngIf="!card.address">Adress girilmemişdir.</small>
+    </li>
   </ul>
 </div>
