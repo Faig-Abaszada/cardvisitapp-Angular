@@ -8,6 +8,7 @@ import {Observable} from "rxjs";
 })
 export class CardService {
 
+
   cards!: Card[]
 
   constructor(
@@ -15,9 +16,14 @@ export class CardService {
     private http: HttpClient
   ) { }
 
-  getCards(): Observable<Card[]> {
-    return this.http.get<Card[]>(this.apiUrl + '/cards')
+  getCards(): void {
+    this.http.get<Card[]>(this.apiUrl + '/cards')
+      .subscribe((res: Card[]) => {
+        this.cards = res;
+      });
   }
+
+
 
   addCard(card: Card): Observable<any> {
     return this.http.post(this.apiUrl + '/cards', card)
