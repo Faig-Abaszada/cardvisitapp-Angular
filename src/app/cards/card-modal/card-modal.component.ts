@@ -39,6 +39,8 @@ export class CardModalComponent implements OnInit {
     this.cardService.addCard(this.cardForm.value)
       .subscribe((res: any) => {
         this.getSuccess(res || 'Card Visitiniz Yenilendi');
+      }, (err: any) => {
+        this.getError(err.message || 'Card Visit elave edilende problem yarandi');
       })
   }
   updateCard(): void {
@@ -46,6 +48,8 @@ export class CardModalComponent implements OnInit {
     this.cardService.updateCard(this.cardForm.value, this.data.id)
       .subscribe((res: any) => {
         this.getSuccess(res || 'Card Visitiniz Yenilendi');
+      }, (err: any) => {
+        this.getError(err.message || 'Card Visit update olunanda problem yarandi');
       });
   }
   cancelCard(): void {
@@ -56,6 +60,8 @@ export class CardModalComponent implements OnInit {
     this.cardService.deleteCard(this.data.id)
       .subscribe((res: any) => {
         this.getSuccess(res || 'Card Visitiniz Silindi');
+      }, (err: any) => {
+        this.getError(err.message || 'Card Visit silinende  problem yarandi');
       });
   }
 
@@ -65,8 +71,13 @@ export class CardModalComponent implements OnInit {
     this.dialogRef.close();
     this.snackBar.open(message, '', {duration: 4000});
   }
+  getError(message: string): void {
+    this.snackBar.open(message, '', {duration: 4000});
+    this.showSpinner = false;
+  }
 //  card add success oldugu zaman this.dialogRef ile close deyib komponenti baglayiriq.
 //  dialogRef neyi baglayavgini constructor icindeki referansdan bilir.
 //  snackBar - success oldugu zaman ekranda alert kimi msg yazsin
+
 
 }
